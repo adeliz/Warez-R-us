@@ -10,11 +10,11 @@ private:
 	int size;
 
 public:
-	Food(string name, string description, int weight, string brand, int price, string type, int size);
+	Food(string name, string description, string brand, int weight, int price, string type, int size);
 	virtual ~Food();
 
 	string getType();
 	int getSize();
 };
 
-#endif
+#endif

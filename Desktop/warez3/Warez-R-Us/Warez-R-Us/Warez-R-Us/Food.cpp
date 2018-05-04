@@ -2,12 +2,7 @@
 
 
 
-Food::Food()
-{
-}
-
-
-Food::Food(string name, string description, int weight, string brand, int price, string type, int size)
+Food::Food(string name, string description, string brand, int weight,  int price, string type, int size)
 	:Item(name, description, brand, weight, price)
 {
 	this->type = type;

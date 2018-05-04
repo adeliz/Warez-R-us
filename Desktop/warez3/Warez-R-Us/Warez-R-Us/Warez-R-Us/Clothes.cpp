@@ -1,7 +1,7 @@
 #include "Clothes.h"
 
 Clothes::Clothes(string name, string description, string brand, int weight, int price, int size, string material)
-	: Item(name, description, brand, weight, price);
+	: Item(name, description, brand, weight, price)
 {
 	this->size = size;
 	this->material = material;
