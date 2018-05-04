@@ -28,6 +28,11 @@ bool Shelf::addItem(Item element)
 	return false;
 }
 
+Item Shelf::getAt(int pos)
+{
+	return this->storage[pos];
+}
+
 //bool Shelf::removeAt(int pos)
 //{
 //	if(pos <= nrOfElements)

@@ -16,7 +16,7 @@ private:
 	int price;
 
 public:
-	Item(string name, string description, string brand, int weight, int price);
+	Item(string name = "", string description = "", string brand = "", int weight = 0, int price = 0);
 	~Item();
 
 	string getName()const;

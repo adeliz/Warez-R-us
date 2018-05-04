@@ -26,8 +26,7 @@ public:
 
 	bool addItem(Item element);
 
-
-
+	Item getAt(int pos);
 
 	//bool removeAt(int pos);
 	//bool removeItem(Item element);

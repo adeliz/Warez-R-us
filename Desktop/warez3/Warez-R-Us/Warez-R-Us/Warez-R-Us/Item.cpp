@@ -2,8 +2,6 @@
 
 
 
-
-
 Item::Item(string name, string description, string brand, int weight, int price)
 {
 
@@ -37,7 +35,7 @@ string Item::getBrand() const
 
 int Item::getWeight() const
 {
-	return this->weight
+	return this->weight;
 }
 
 int Item::getPrice() const
