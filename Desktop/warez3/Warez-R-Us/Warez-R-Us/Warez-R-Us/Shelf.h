@@ -1,7 +1,6 @@
 #ifndef Shelf_h
 #define Shelf_h
 
-#include "Item.h"
 #include "Food.h"
 #include "Misc.h"
 #include "Tools.h"
@@ -21,7 +20,7 @@ private:
 
 
 public:
-	Shelf(int cap, string shelfId);
+	Shelf(int cap = 0, string shelfId = "");
 	virtual ~Shelf();
 
 	bool addItem(Item element);

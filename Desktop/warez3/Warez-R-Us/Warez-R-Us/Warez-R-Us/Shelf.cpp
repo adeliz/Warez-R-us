@@ -21,7 +21,6 @@ bool Shelf::addItem(Item element)
 	if(nrOfElements < cap)
 	{
 		this->storage[nrOfElements++] = element;
-
 		return true;
 	}
 
