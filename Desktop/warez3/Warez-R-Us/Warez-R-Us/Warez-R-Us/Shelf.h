@@ -15,7 +15,7 @@ class Shelf
 private:
 	int cap;
 	int nrOfElements;
-	Item *storage;
+	Item* storage;
 	string shelfId;
 
 
@@ -25,7 +25,7 @@ public:
 
 	bool addItem(Item element);
 
-	Item getAt(int pos);
+	//Food getFoodAt(int pos);
 
 	//bool removeAt(int pos);
 	//bool removeItem(Item element);

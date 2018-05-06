@@ -27,10 +27,18 @@ bool Shelf::addItem(Item element)
 	return false;
 }
 
-Item Shelf::getAt(int pos)
-{
-	return this->storage[pos];
-}
+//Food Shelf::getFoodAt(int pos)
+//{
+//	Food* foodptr = nullptr;
+//	Food temp = Food("", "", "", 0, 0, "", 0);
+//	foodptr = dynamic_cast<Food *> (storage[pos]);
+//	if (foodptr != nullptr)
+//	{
+//		return storage[pos];
+//	}
+//
+//	return temp;
+//}
 
 //bool Shelf::removeAt(int pos)
 //{
