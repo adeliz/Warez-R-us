@@ -10,7 +10,7 @@ private:
 	string type;
 
 public:
-	Misc(string name, string description, string brand, int weight, int price, string type);
+	Misc(string name = "", string description = "", string brand = "", int weight = 0, int price = 0, string type = "");
 	virtual ~Misc();
 
 	string getType();

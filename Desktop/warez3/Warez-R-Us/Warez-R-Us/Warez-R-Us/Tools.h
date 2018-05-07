@@ -3,7 +3,7 @@
 
 #include "Item.h"
 
-class Tools :
+class Tools:
 	public Item
 {
 
@@ -12,7 +12,7 @@ private:
 
 
 public:
-	Tools(string name, string description, string brand, int weight, int price, string type);
+	Tools(string name = "", string description = "", string brand = "", int weight = 0, int price = 0, string type = "");
 	virtual ~Tools();
 
 	string getType()const;
