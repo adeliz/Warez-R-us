@@ -14,7 +14,7 @@ public:
 	virtual ~Misc();
 
 	string getType();
-
+	string toStringSpecific()const;
 };
 
 

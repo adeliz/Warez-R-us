@@ -14,18 +14,13 @@ private:
 
 
 public:
-	Clothes(string name, string description, string brand, int weight, int price, int size, string material);
+	Clothes(string name = "", string description = "", string brand = "", int weight = 0, int price = 0, int size = 0, string material = "");
 	virtual ~Clothes();
 
 	int getSize()const;
 	string getMaterial()const;
-
+	string toStringSpecific()const;
 
 };
-
-
-
-
-
 
 #endif

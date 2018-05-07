@@ -15,6 +15,7 @@ public:
 
 	string getType();
 	int getSize();
+	string toStringSpecific()const;
 };
 
 #endif

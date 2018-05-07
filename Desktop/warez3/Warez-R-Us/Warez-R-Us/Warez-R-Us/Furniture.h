@@ -23,6 +23,8 @@ public:
 	int getWidth()const;
 	int getLenght()const;
 
+	string toStringSpecific()const;
+
 };
 
 #endif

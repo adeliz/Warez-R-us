@@ -16,14 +16,8 @@ public:
 	virtual ~Tools();
 
 	string getType()const;
-
-
-
-
-
+	string toStringSpecific()const;
 
 };
-
-
 
 #endif

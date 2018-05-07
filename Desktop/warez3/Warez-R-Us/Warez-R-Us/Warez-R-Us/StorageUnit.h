@@ -1,5 +1,5 @@
-#ifndef Shelf_h
-#define Shelf_h
+#ifndef StorageUnit_h
+#define StorageUnit_h
 
 #include "Food.h"
 #include "Misc.h"
@@ -10,21 +10,22 @@
 
 using namespace std;
 
-class Shelf
+class StorageUnit
 {
 private:
 	int cap;
 	int nrOfElements;
 	Item* *storage;
-	string shelfId;
-
+	int temperature;
 
 public:
-	Shelf(int cap = 0, string shelfId = "");
-	virtual ~Shelf();
+	StorageUnit(int cap = 0, int temperature = 0);
+	virtual ~StorageUnit();
+
+	string getTemp();
+	void changeTemp(int temp);
 
 	int getNrOf();
-
 
 	bool addFood(string name = "", string description = "", string brand = "", int weight = 0, int price = 0, string type = "", int size = 0);
 	bool addTool(string name = "", string description = "", string brand = "", int weight = 0, int price = 0, string type = "");
@@ -43,6 +44,7 @@ public:
 	bool removeAt(int pos);
 
 	string getAll();
+
 };
 
 #endif

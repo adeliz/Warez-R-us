@@ -3,9 +3,7 @@
 
 #include <string>
 
-
 using namespace std;
-
 
 class Person 
 {
@@ -15,8 +13,6 @@ private:
 	int SSN;
 	string gender;
 
-
-
 public:
 
 	Person(string name = "", int SSN = 0, string gender = "");
@@ -25,8 +21,6 @@ public:
 	string getName()const;
 	int getSSN()const;
 	string getGender()const;
-
-
 
 };
 

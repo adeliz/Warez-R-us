@@ -1,31 +1,38 @@
-#include "Shelf.h"
+#include "StorageUnit.h"
 
-
-
-
-Shelf::Shelf(int cap, string shelfId)
+StorageUnit::StorageUnit(int cap, int temperature)
 {
 	this->cap = cap;
 	this->nrOfElements = 0;
-	this->shelfId = shelfId;
+	this->temperature = temperature;
 	this->storage = new Item*[cap];
 }
 
-Shelf::~Shelf()
+StorageUnit::~StorageUnit()
 {
-	for(int i = 0; i < nrOfElements; i++)
+	for (int i = 0; i < nrOfElements; i++)
 	{
 		delete storage[i];
 	}
 	delete[] storage;
 }
 
-int Shelf::getNrOf()
+string StorageUnit::getTemp()
+{
+	return to_string(this->temperature);
+}
+
+void StorageUnit::changeTemp(int temp)
+{
+	this-> temperature = temp;
+}
+
+int StorageUnit::getNrOf()
 {
 	return this->nrOfElements;
 }
 
-bool Shelf::addFood(string name, string description, string brand, int weight, int price, string type, int size)
+bool StorageUnit::addFood(string name, string description, string brand, int weight, int price, string type, int size)
 {
 	if (nrOfElements < cap)
 	{
@@ -36,7 +43,7 @@ bool Shelf::addFood(string name, string description, string brand, int weight, i
 	return false;
 }
 
-bool Shelf::addTool(string name, string description, string brand, int weight, int price, string type)
+bool StorageUnit::addTool(string name, string description, string brand, int weight, int price, string type)
 {
 	if (nrOfElements < cap)
 	{
@@ -47,7 +54,7 @@ bool Shelf::addTool(string name, string description, string brand, int weight, i
 	return false;
 }
 
-bool Shelf::addMisc(string name, string description, string brand, int weight, int price, string type)
+bool StorageUnit::addMisc(string name, string description, string brand, int weight, int price, string type)
 {
 	if (nrOfElements < cap)
 	{
@@ -58,7 +65,7 @@ bool Shelf::addMisc(string name, string description, string brand, int weight, i
 	return false;
 }
 
-bool Shelf::addFurniture(string name, string description, string brand, int weight, int price, string type, string material, int height, int width, int lenght)
+bool StorageUnit::addFurniture(string name, string description, string brand, int weight, int price, string type, string material, int height, int width, int lenght)
 {
 	if (nrOfElements < cap)
 	{
@@ -69,7 +76,7 @@ bool Shelf::addFurniture(string name, string description, string brand, int weig
 	return false;
 }
 
-bool Shelf::addClothes(string name, string description, string brand, int weight, int price, int size, string material)
+bool StorageUnit::addClothes(string name, string description, string brand, int weight, int price, int size, string material)
 {
 	if (nrOfElements < cap)
 	{
@@ -82,14 +89,14 @@ bool Shelf::addClothes(string name, string description, string brand, int weight
 
 //#########################################################
 
-string Shelf::getSubClass(int pos)
+string StorageUnit::getSubClass(int pos)
 {
 	return storage[pos]->getSubClass();
 }
 
 
 //#########################################################
-Food* Shelf::getFoodAt(int pos)
+Food* StorageUnit::getFoodAt(int pos)
 {
 	Food* foodptr = nullptr;
 	Food* temp = new Food();
@@ -101,7 +108,7 @@ Food* Shelf::getFoodAt(int pos)
 	return temp;
 }
 
-Tools * Shelf::getToolAt(int pos)
+Tools * StorageUnit::getToolAt(int pos)
 {
 	Tools* toolptr = nullptr;
 	Tools* temp = new Tools();
@@ -113,7 +120,7 @@ Tools * Shelf::getToolAt(int pos)
 	return temp;
 }
 
-Misc * Shelf::getMiscAt(int pos)
+Misc * StorageUnit::getMiscAt(int pos)
 {
 	Misc* miscptr = nullptr;
 	Misc* temp = new Misc();
@@ -125,7 +132,7 @@ Misc * Shelf::getMiscAt(int pos)
 	return temp;
 }
 
-Furniture * Shelf::getFurnitureAt(int pos)
+Furniture * StorageUnit::getFurnitureAt(int pos)
 {
 	Furniture* furnitureptr = nullptr;
 	Furniture* temp = new Furniture();
@@ -137,7 +144,7 @@ Furniture * Shelf::getFurnitureAt(int pos)
 	return temp;
 }
 
-Clothes* Shelf::getClothesAt(int pos)
+Clothes* StorageUnit::getClothesAt(int pos)
 {
 	Clothes* clothesptr = nullptr;
 	Clothes* temp = new Clothes();
@@ -149,11 +156,11 @@ Clothes* Shelf::getClothesAt(int pos)
 	return temp;
 }
 
-bool Shelf::removeAt(int pos)
+bool StorageUnit::removeAt(int pos)
 {
-	if(pos <= nrOfElements)
+	if (pos <= nrOfElements)
 	{
-		if(pos != nrOfElements)
+		if (pos != nrOfElements)
 		{
 			this->storage[pos] = nullptr;
 			this->storage[pos] = storage[nrOfElements];
@@ -167,51 +174,33 @@ bool Shelf::removeAt(int pos)
 	return false;
 }
 
-//bool Shelf::removeItem(Item element)
-//{
-//	for(int i = 0; i < nrOfElements; i++)
-//	{
-//		Food foodPtr = nullptr;
-//		foodPtr = dynamic_cast<Food>(storage[i]);
-//		if(foodPtr != nullptr)
-//		{
-//			
-//		}
-//
-//
-//	}
-//	return false;
-//}
-
-
-string Shelf::getAll()
+string StorageUnit::getAll()
 {
 	string returnString = "";
 
 	for (int i = 0; i < this->getNrOf(); i++)
 	{
+		cout << i << endl;
 		if (storage[i]->getSubClass() == "Food")
 		{
-			returnString += this->getFoodAt(i)->toString() + "\n" +"\n"; 
+			returnString = this->getFoodAt(i)->toString() + "\n" + "\n";
 		}
 		else if (storage[i]->getSubClass() == "Misc")
 		{
-			returnString += this->getMiscAt(i)->toString() + "\n" + "\n";
+			returnString = this->getMiscAt(i)->toString() + "\n" + "\n";
 		}
 		else if (storage[i]->getSubClass() == "Furniture")
 		{
-			returnString += this->getFurnitureAt(i)->toString() + "\n" + "\n";
+			returnString = this->getFurnitureAt(i)->toString() + "\n" + "\n";
 		}
 		else if (storage[i]->getSubClass() == "Tools")
 		{
-			returnString += this->getToolAt(i)->toString() + "\n" + "\n";
+			returnString = this->getToolAt(i)->toString() + "\n" + "\n";
 		}
 		else if (storage[i]->getSubClass() == "Clothes")
 		{
-			returnString += this->getClothesAt(i)->toString() + "\n" + "\n";
+			returnString = this->getClothesAt(i)->toString() + "\n" + "\n";
 		}
 	}
 	return returnString;
 }
-
-
