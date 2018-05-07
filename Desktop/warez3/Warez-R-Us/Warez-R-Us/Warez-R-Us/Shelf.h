@@ -4,7 +4,7 @@
 #include "Food.h"
 #include "Misc.h"
 #include "Tools.h"
-#include "clothes.h"
+#include "Clothes.h"
 #include "Furniture.h"
 #include <string>
 
@@ -15,7 +15,7 @@ class Shelf
 private:
 	int cap;
 	int nrOfElements;
-	Item* storage;
+	Item* *storage;
 	string shelfId;
 
 
@@ -25,10 +25,10 @@ public:
 
 	bool addItem(Item element);
 
-	//Food getFoodAt(int pos);
+	Item getFoodAt(int pos);
 
-	//bool removeAt(int pos);
-	//bool removeItem(Item element);
+	bool removeAt(int pos);
+	bool removeItem(Item element);
 
 };
 
