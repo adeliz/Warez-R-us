@@ -162,12 +162,12 @@ bool StorageUnit::removeAt(int pos)
 	{
 		if (pos != nrOfElements)
 		{
-			this->storage[pos] = nullptr;
-			this->storage[pos] = storage[nrOfElements];
+			delete storage[pos];
+			this->storage[pos] = storage[nrOfElements--];
 		}
 		else
 		{
-
+			delete storage[nrOfElements--];
 		}
 		return true;
 	}
