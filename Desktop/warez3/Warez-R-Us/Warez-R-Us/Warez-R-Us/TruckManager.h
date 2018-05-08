@@ -18,11 +18,13 @@ public:
 
 	string list();
 	bool addTruck(Truck newTruck);
+	bool addTruck(string id, string destination, int velocity, int locationX, int locationY, int cap, int temp);
 	bool removeTruck(Truck newTruck);
 	Truck getTruckAt(int pos);
 
 	//Truck* trackTruck(Truck );
 
+	void update(bool admin, int action);
 };
 
 #endif

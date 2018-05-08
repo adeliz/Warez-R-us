@@ -56,6 +56,31 @@ int Item::getPrice() const
 	return this->price;
 }
 
+void Item::setName(string info)
+{
+	this->name = info;
+}
+
+void Item::setDescription(string info)
+{
+	this->description = info;
+}
+
+void Item::setBrand(string info)
+{
+	this->brand = info;
+}
+
+void Item::setWeight(int info)
+{
+	this->weight = info;
+}
+
+void Item::setPrice(int info)
+{
+	this->price = info;
+}
+
 string Item::toString() const
 {
 	return "Name: " + this->name + "\nDescription: " + this->description +

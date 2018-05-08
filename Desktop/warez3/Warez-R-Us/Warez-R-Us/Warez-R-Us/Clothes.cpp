@@ -21,6 +21,16 @@ string Clothes::getMaterial() const
 	return this->material;
 }
 
+void Clothes::setSize(int info)
+{
+	this->size = info;
+}
+
+void Clothes::setMaterial(string info)
+{
+	this->material = info;
+}
+
 string Clothes::toStringSpecific() const
 {
 	return this->toString() + "\nSize: " + to_string(this->size) + "\nMaterial: " + material;

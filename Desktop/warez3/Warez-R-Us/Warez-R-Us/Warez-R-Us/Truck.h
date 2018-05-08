@@ -28,6 +28,10 @@ public:
 	void changeDestination(string destination);
 	void changeLocationX(int pos);
 	void changeLocationY(int pos);
+
+	string toString();
+
+	void update();
 };
 
 #endif

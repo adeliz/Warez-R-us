@@ -44,6 +44,23 @@ bool Usermanager::addUser(User newUser)
 	return true;
 }
 
+bool Usermanager::addUser(string name, int SSN, string gender, string username, string password, bool adminRights)
+{
+	if (this->nrOfUsers >= cap)
+	{
+		this->cap += 2;
+		User* temp = new User[this->cap];
+		for (int i = 0; i < nrOfUsers; i++)
+		{
+			temp[i] = users[i];
+		}
+		delete users;
+		users = temp;
+	}
+	this->users[nrOfUsers++] = User(name, SSN, gender, username, password, adminRights);
+	return true;
+}
+
 bool Usermanager::removeUser(User newUser)
 {
 	bool found = false;
@@ -85,4 +102,21 @@ bool Usermanager::removeAdminRights(User thisUser)
 		}
 	}
 	return false;
+}
+
+User Usermanager::getUser(int pos)
+{
+	return users[pos];
+}
+
+int Usermanager::findUser(string userName)
+{
+	for(int i = 0; i < nrOfUsers; i++)
+	{
+		if(users->getUserName() == userName)
+		{
+			return i;
+		}
+	}
+	return -1;
 }

@@ -6,7 +6,6 @@
 #include "Tools.h"
 #include "Clothes.h"
 #include "Furniture.h"
-#include <string>
 
 using namespace std;
 
@@ -17,14 +16,6 @@ private:
 	int nrOfElements;
 	Item* *storage;
 	int temperature;
-
-	sf::Texture texture;
-	sf::Sprite* spriteList;
-
-	sf::Font font;
-	sf::Text* textList;
-
-	void load();
 
 public:
 	StorageUnit(int cap = 0, int temperature = 0);
@@ -52,8 +43,6 @@ public:
 	bool removeAt(int pos);
 
 	string getAll();
-
-	void draw(sf::RenderTarget& target, sf::RenderStates stats) const;
 
 };
 

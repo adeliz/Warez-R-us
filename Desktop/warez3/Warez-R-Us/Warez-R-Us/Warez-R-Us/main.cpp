@@ -1,24 +1,26 @@
-#include <SFML/Graphics.hpp>
-
+#include "WHManager.h"
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(1920, 1080), "SFML works!");
-	sf::CircleShape shape(100.f);
-	shape.setFillColor(sf::Color::Green);
-	while (window.isOpen())
+
+	WHManager manager = WHManager();
+
+	cout << manager.addUser("Origin", 0, "None", "Master", "12345", true) << endl;
+
+	int choice = -1;
+
+	while(choice != 0)
 	{
-		sf::Event event;
-		while (window.pollEvent(event))
+		cout << "What do you want to do?" << endl;
+		cout << "1: Log in and start system" << endl;
+		cout << "0: Exit" << endl;
+		cin >> choice;
+		cin.ignore();
+
+		if(choice == 1)
 		{
-			if (event.type == sf::Event::Closed)
-				window.close();
+			manager.login();
 		}
-
-		window.clear();
-		window.draw(shape);
-		window.draw(shape);
-		window.display();
 	}
-
+	
 	return 0;
 }

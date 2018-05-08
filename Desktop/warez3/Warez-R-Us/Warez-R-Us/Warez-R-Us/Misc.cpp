@@ -15,6 +15,11 @@ string Misc::getType()
 	return this->type;
 }
 
+void Misc::setType(string info)
+{
+	this->type = info;
+}
+
 string Misc::toStringSpecific() const
 {
 	return this->toString() + "\nType: " + this->type;

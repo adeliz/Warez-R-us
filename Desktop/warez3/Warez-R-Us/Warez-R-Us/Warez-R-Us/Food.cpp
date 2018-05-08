@@ -30,6 +30,16 @@ int Food::getSize()
 	return this->size;
 }
 
+void Food::setType(string info)
+{
+	this->type = info;
+}
+
+void Food::setSize(int info)
+{
+	this->size = info;
+}
+
 string Food::toStringSpecific() const
 {
 	return this->toString() + "\nType: " + this->type + "\nSize: " + to_string(this->size);

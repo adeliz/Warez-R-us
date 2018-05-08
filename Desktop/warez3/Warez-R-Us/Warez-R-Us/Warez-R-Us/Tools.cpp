@@ -15,6 +15,11 @@ string Tools::getType() const
 	return this->type;
 }
 
+void Tools::setType(string info)
+{
+	this->type = info;
+}
+
 string Tools::toStringSpecific() const
 {
 	return this->toString() + "\nType: " + this->type;

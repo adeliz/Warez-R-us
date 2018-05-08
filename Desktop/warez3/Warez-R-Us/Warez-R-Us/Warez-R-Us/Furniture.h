@@ -23,6 +23,12 @@ public:
 	int getWidth()const;
 	int getLenght()const;
 
+	void setType(string info);
+	void setMaterial(string info);
+	void setHeight(int info);
+	void setWidth(int info);
+	void setlenght(int info);
+
 	string toStringSpecific()const;
 
 };

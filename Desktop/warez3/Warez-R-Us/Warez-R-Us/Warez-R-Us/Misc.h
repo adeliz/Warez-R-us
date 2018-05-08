@@ -14,6 +14,9 @@ public:
 	virtual ~Misc();
 
 	string getType();
+
+	void setType(string info);
+
 	string toStringSpecific()const;
 };
 

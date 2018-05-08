@@ -39,6 +39,31 @@ int Furniture::getLenght() const
 	return this->lenght;
 }
 
+void Furniture::setType(string info)
+{
+	this->type = info;
+}
+
+void Furniture::setMaterial(string info)
+{
+	this->material = info;
+}
+
+void Furniture::setHeight(int info)
+{
+	this->height = info;
+}
+
+void Furniture::setWidth(int info)
+{
+	this->width = info;
+}
+
+void Furniture::setlenght(int info)
+{
+	this->lenght = info;
+}
+
 string Furniture::toStringSpecific() const
 {
 	return this->toString() + "\nType: " + this->type + "\nMaterial: " + this->material + "\nHeight: "

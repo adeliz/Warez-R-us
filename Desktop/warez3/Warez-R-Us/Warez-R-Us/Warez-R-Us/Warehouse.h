@@ -1,17 +1,25 @@
 #ifndef WAREHOUSE_H
 #define WAREHOUSE_H
-#include"SFML\Graphics.hpp"
 
+#include "TruckManager.h"
+#include "Shelf.h"
 
 class Warehouse{
 private:
-	sf::Sprite background;
-	sf::Texture backgroundTexture;
+	int nrOfShelfs;
+	int cap;
+	Shelf* shelfs;
+	int loadingZones;
+	TruckManager trucks;
 
 public:
-	Warehouse();
+	Warehouse(int nrOfShelfs = 10);
 	~Warehouse();
-	void draw(sf::RenderTarget& target);
+
+	int getNrOfShelfs();
+	int getNrOfLoadingZones();
+
+	void update(bool admin);
 };
 
 #endif // !WAREHOUSE_H

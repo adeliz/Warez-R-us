@@ -29,6 +29,12 @@ public:
 	int getWeight()const;
 	int getPrice()const;
 
+	void setName(string info);
+	void setDescription(string info);
+	void setBrand(string info);
+	void setWeight(int info);
+	void setPrice(int info);
+
 	string toString()const;
 	virtual string toStringSpecific()const = 0;
 };

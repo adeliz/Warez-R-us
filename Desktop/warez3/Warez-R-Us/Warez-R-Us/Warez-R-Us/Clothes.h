@@ -19,6 +19,10 @@ public:
 
 	int getSize()const;
 	string getMaterial()const;
+
+	void setSize(int info);
+	void setMaterial(string info);
+
 	string toStringSpecific()const;
 
 };

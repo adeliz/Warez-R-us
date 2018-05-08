@@ -15,6 +15,10 @@ public:
 
 	string getType();
 	int getSize();
+
+	void setType(string info);
+	void setSize(int info);
+
 	string toStringSpecific()const;
 };
 

@@ -9,9 +9,9 @@ TruckManager::TruckManager()
 	this->trucks = new Truck[cap];
 }
 
-
 TruckManager::~TruckManager()
 {
+	delete[] trucks;
 }
 
 int TruckManager::getNrOfTrucks()
@@ -31,18 +31,35 @@ string TruckManager::list()
 
 bool TruckManager::addTruck(Truck newTruck)
 {
-	if(this->nrOfTrucks >= cap)
+	if (this->nrOfTrucks >= cap)
 	{
 		this->cap += 2;
 		Truck* temp = new Truck[this->cap];
-		for(int i = 0; i < nrOfTrucks; i++)
+		for (int i = 0; i < nrOfTrucks; i++)
 		{
 			temp[i] = trucks[i];
 		}
-		delete trucks;
+		delete[] trucks;
 		trucks = temp;
 	}
 	this->trucks[nrOfTrucks++] = newTruck;
+	return true;
+}
+
+bool TruckManager::addTruck(string id, string destination, int velocity, int locationX, int locationY, int cap, int temp)
+{
+	if (this->nrOfTrucks >= cap)
+	{
+		this->cap += 2;
+		Truck* temp = new Truck[this->cap];
+		for (int i = 0; i < nrOfTrucks; i++)
+		{
+			temp[i] = trucks[i];
+		}
+		delete[] trucks;
+		trucks = temp;
+	}
+	this->trucks[nrOfTrucks++] = Truck(id, destination, velocity, locationX, locationY, cap, temp);
 	return true;
 }
 
@@ -66,4 +83,63 @@ bool TruckManager::removeTruck(Truck Truck)
 Truck TruckManager::getTruckAt(int pos)
 {
 	return trucks[pos];
+}
+
+void TruckManager::update(bool admin, int action)
+{
+	string id = "";
+	string destination = "";
+	int velocity = 0;
+	int locationX = 0;
+	int locationY = 0;
+	int cap = 0;
+	int temperature = 0;
+
+	int choice = -1;
+	if(action == 1)
+	{
+		while(choice != 0)
+		{
+			cout << "Which truck?" << endl;
+			for(int i = 0; i < nrOfTrucks; i++)
+			{
+				cout << i << ": Truck " << i+1 << endl;
+			}
+			cout << "0: Exit" << endl;
+			cin >> choice;
+			cin.ignore();
+			if(choice != 0)
+			{
+				trucks[choice].update();
+			}
+		}
+	}
+	else if (action == 2)
+	{
+		while (choice != 0)
+		{
+			cout << "Enter the trucks information" << endl;
+			cout << "Id? " << endl;
+			getline(cin, id);
+			cout << "Destination? " << endl;
+			getline(cin, id);
+			cout << "Velocity?" << endl;
+			cin >> velocity;
+			cin.ignore();
+			cout << "LocationX?" << endl;
+			cin >> locationX;
+			cin.ignore();
+			cout << "locationY" << endl;
+			cin >> locationY;
+			cin.ignore();
+			cout << "Cap?" << endl;
+			cin >> cap;
+			cin.ignore();
+			cout << "Temperature?" << endl;
+			cin >> temperature;
+			cin.ignore();
+			this->addTruck(id, destination, velocity, locationX, locationY, cap, temperature);
+		}
+	}
+
 }

@@ -6,7 +6,6 @@
 #include "Tools.h"
 #include "Clothes.h"
 #include "Furniture.h"
-#include <string>
 
 using namespace std;
 
@@ -17,20 +16,12 @@ private:
 	int nrOfElements;
 	Item* *storage;
 	string shelfId;
-
-	sf::Texture texture;
-	sf::Sprite* spriteList;
-
-	sf::Font font;
-	sf::Text* textList;
-
-	void load();
 public:
 	Shelf(int cap = 0, string shelfId = "");
 	virtual ~Shelf();
 
 	int getNrOf();
-
+	int getCap();
 
 	bool addFood(string name = "", string description = "", string brand = "", int weight = 0, int price = 0, string type = "", int size = 0);
 	bool addTool(string name = "", string description = "", string brand = "", int weight = 0, int price = 0, string type = "");
@@ -50,8 +41,7 @@ public:
 
 	string getAll();
 
-	void draw(sf::RenderTarget& target, sf::RenderStates stats) const;
-
+	void update(bool admin, int action);
 };
 
 #endif
