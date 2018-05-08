@@ -155,8 +155,9 @@ bool Shelf::removeAt(int pos)
 	{
 		if (pos != nrOfElements)
 		{
-			delete storage[pos];
-			this->storage[pos] = storage[nrOfElements--];
+			
+			this->storage[pos] = storage[nrOfElements];
+			delete storage[nrOfElements--];
 		}
 		else
 		{
