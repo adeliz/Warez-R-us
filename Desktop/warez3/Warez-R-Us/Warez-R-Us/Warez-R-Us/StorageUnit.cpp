@@ -162,11 +162,13 @@ bool StorageUnit::removeAt(int pos)
 	{
 		if (pos != nrOfElements)
 		{
-			this->storage[pos] = storage[nrOfElements];
-			delete storage[nrOfElements--];
+			delete storage[pos];
+			storage[pos] = storage[--nrOfElements];
+			storage[nrOfElements] = nullptr;
 		}
 		else
 		{
+			cout << "Check4" << endl;
 			delete storage[nrOfElements--];
 		}
 		return true;
@@ -178,28 +180,27 @@ string StorageUnit::getAll()
 {
 	string returnString = "";
 
-	for (int i = 0; i < this->getNrOf(); i++)
+	for (int i = 0; i < this->nrOfElements; i++)
 	{
-		cout << i << endl;
 		if (storage[i]->getSubClass() == "Food")
 		{
-			returnString = this->getFoodAt(i)->toString() + "\n" + "\n";
+			returnString += this->getFoodAt(i)->toStringSpecific() + "\n" + "\n";
 		}
 		else if (storage[i]->getSubClass() == "Misc")
 		{
-			returnString = this->getMiscAt(i)->toString() + "\n" + "\n";
+			returnString += this->getMiscAt(i)->toStringSpecific() + "\n" + "\n";
 		}
 		else if (storage[i]->getSubClass() == "Furniture")
 		{
-			returnString = this->getFurnitureAt(i)->toString() + "\n" + "\n";
+			returnString += this->getFurnitureAt(i)->toStringSpecific() + "\n" + "\n";
 		}
 		else if (storage[i]->getSubClass() == "Tools")
 		{
-			returnString = this->getToolAt(i)->toString() + "\n" + "\n";
+			returnString += this->getToolAt(i)->toStringSpecific() + "\n" + "\n";
 		}
 		else if (storage[i]->getSubClass() == "Clothes")
 		{
-			returnString = this->getClothesAt(i)->toString() + "\n" + "\n";
+			returnString += this->getClothesAt(i)->toStringSpecific() + "\n" + "\n";
 		}
 	}
 	return returnString;
