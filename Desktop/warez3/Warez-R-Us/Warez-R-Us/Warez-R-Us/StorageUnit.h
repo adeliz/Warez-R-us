@@ -18,6 +18,14 @@ private:
 	Item* *storage;
 	int temperature;
 
+	sf::Texture texture;
+	sf::Sprite* spriteList;
+
+	sf::Font font;
+	sf::Text* textList;
+
+	void load();
+
 public:
 	StorageUnit(int cap = 0, int temperature = 0);
 	virtual ~StorageUnit();
@@ -44,6 +52,8 @@ public:
 	bool removeAt(int pos);
 
 	string getAll();
+
+	void draw(sf::RenderTarget& target, sf::RenderStates stats) const;
 
 };
 

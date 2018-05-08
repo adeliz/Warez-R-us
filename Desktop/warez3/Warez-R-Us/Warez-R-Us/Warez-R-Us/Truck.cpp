@@ -51,7 +51,7 @@ int Truck::getVelocity()
 	return this->velocity;
 }
 
-StorageUnit* Truck::GetStorage()
+StorageUnit* Truck::getStorage()
 {
 	return this->storage;
 }

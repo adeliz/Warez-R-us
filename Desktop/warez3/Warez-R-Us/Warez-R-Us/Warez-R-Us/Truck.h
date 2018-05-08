@@ -23,7 +23,7 @@ public:
 	string getID();
 	string getLocation();
 	int getVelocity();
-	StorageUnit* GetStorage();
+	StorageUnit* getStorage();
 
 	void changeDestination(string destination);
 	void changeLocationX(int pos);

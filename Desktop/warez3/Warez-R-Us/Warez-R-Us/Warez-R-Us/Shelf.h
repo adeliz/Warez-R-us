@@ -18,7 +18,13 @@ private:
 	Item* *storage;
 	string shelfId;
 
+	sf::Texture texture;
+	sf::Sprite* spriteList;
 
+	sf::Font font;
+	sf::Text* textList;
+
+	void load();
 public:
 	Shelf(int cap = 0, string shelfId = "");
 	virtual ~Shelf();
@@ -43,6 +49,9 @@ public:
 	bool removeAt(int pos);
 
 	string getAll();
+
+	void draw(sf::RenderTarget& target, sf::RenderStates stats) const;
+
 };
 
 #endif

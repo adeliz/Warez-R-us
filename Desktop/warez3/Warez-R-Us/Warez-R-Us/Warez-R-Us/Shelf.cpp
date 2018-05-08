@@ -1,7 +1,25 @@
 #include "Shelf.h"
 
 
+void Shelf::load()
+{
+	for (int i = 0; i < nrOfElements; i++)
+	{
+		if (i > 4)
+		{
+			textList[i].setString(storage[i]->toStringSpecific());
+			spriteList[i].setPosition(105 * (i - 5), 120);
+			textList[i].setPosition(105 * (i - 5), 120);
+		}
+		else
+		{
+			textList[i].setString(storage[i]->toStringSpecific());
+			spriteList[i].setPosition(105 * i, 10);
+			textList[i].setPosition(105 * i, 10);
+		}
 
+	}
+}
 
 Shelf::Shelf(int cap, string shelfId)
 {
@@ -9,6 +27,29 @@ Shelf::Shelf(int cap, string shelfId)
 	this->nrOfElements = 0;
 	this->shelfId = shelfId;
 	this->storage = new Item*[cap];
+
+	this->spriteList = new sf::Sprite[cap];
+
+	this->textList = new sf::Text[cap];
+
+	this->texture.loadFromFile("Texture\\ItemBG.png");
+	for (int i = 0; i < cap; i++)
+	{
+		this->spriteList[i].setTexture(texture);
+		this->spriteList[i].scale(0.5, 0.5);
+	}
+	this->font.loadFromFile("Texture\\arial.ttf");
+
+	for (int i = 0; i < cap; i++)
+	{
+		this->textList[i].setFont(font);
+
+		this->textList[i].setCharacterSize(9);
+
+		this->textList[i].setFillColor(sf::Color::Black);
+
+		this->textList[i].setPosition(0, 0);
+	}
 }
 
 Shelf::~Shelf()
@@ -30,6 +71,7 @@ bool Shelf::addFood(string name, string description, string brand, int weight, i
 	if (nrOfElements < cap)
 	{
 		this->storage[nrOfElements++] = new Food(name, description, brand, weight, price, type, size);
+		this->load();
 		return true;
 	}
 
@@ -41,6 +83,7 @@ bool Shelf::addTool(string name, string description, string brand, int weight, i
 	if (nrOfElements < cap)
 	{
 		this->storage[nrOfElements++] = new Tools(name, description, brand, weight, price, type);
+		this->load();
 		return true;
 	}
 
@@ -52,6 +95,7 @@ bool Shelf::addMisc(string name, string description, string brand, int weight, i
 	if (nrOfElements < cap)
 	{
 		this->storage[nrOfElements++] = new Misc(name, description, brand, weight, price, type);
+		this->load();
 		return true;
 	}
 
@@ -63,6 +107,7 @@ bool Shelf::addFurniture(string name, string description, string brand, int weig
 	if (nrOfElements < cap)
 	{
 		this->storage[nrOfElements++] = new Furniture(name, description, brand, weight, price, type, material, height, width, lenght);
+		this->load();
 		return true;
 	}
 
@@ -74,6 +119,7 @@ bool Shelf::addClothes(string name, string description, string brand, int weight
 	if (nrOfElements < cap)
 	{
 		this->storage[nrOfElements++] = new Clothes(name, description, brand, weight, price, size, material);
+		this->load();
 		return true;
 	}
 
@@ -164,6 +210,7 @@ bool Shelf::removeAt(int pos)
 			cout << "Check4" << endl;
 			delete storage[nrOfElements--];
 		}
+		this->load();
 		return true;
 	}
 	return false;
@@ -216,4 +263,13 @@ string Shelf::getAll()
 	return returnString;
 }
 
-
+void Shelf::draw(sf::RenderTarget & target, sf::RenderStates stats) const
+{
+	{
+		for (int i = 0; i < nrOfElements; i++)
+		{
+			target.draw(this->spriteList[i]);
+			target.draw(this->textList[i]);
+		}
+	}
+}
