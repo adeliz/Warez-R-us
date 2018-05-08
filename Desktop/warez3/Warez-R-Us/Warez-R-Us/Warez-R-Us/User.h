@@ -6,14 +6,11 @@
 class User :
 	public Person
 {
-
-
 private:
 
 	string username;
 	string password;
 	bool adminRights;
-
 
 public:
 	User(string name = "", int SSN = 0, string gender = "", string username = "", string password = "", bool adminRights = 0);
@@ -23,8 +20,8 @@ public:
 	bool getAdmin()const;
 	bool changePassword(string newPassword);
 	bool checkPassword(string currentPassword);
+	void setAdminRights();
+	void removeAdminRights();
 
 };
-
-
 #endif

@@ -47,3 +47,13 @@ bool User::checkPassword(string currentPassword)
 	else
 		return false;
 }
+
+void User::setAdminRights()
+{
+	this->adminRights = true;
+}
+
+void User::removeAdminRights()
+{
+	this->adminRights = false;
+}
