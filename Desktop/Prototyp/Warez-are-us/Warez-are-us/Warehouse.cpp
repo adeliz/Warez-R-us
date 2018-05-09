@@ -10,8 +10,7 @@ Warehouse::Warehouse(int nrOfShelfs)
 	this->loadingZones = 0;
 }
 
-Warehouse::~Warehouse()
-{
+Warehouse::~Warehouse(){
 }
 
 
@@ -56,7 +55,7 @@ void Warehouse::update(bool admin)
 				cin.ignore();
 				if (choice != 0 && choice <= nrOfShelfs)
 				{
-					shelfs[choice].update(admin, 1);
+					shelfs[choice-1].update(admin, 1);
 				}
 			}
 
@@ -82,8 +81,8 @@ void Warehouse::update(bool admin)
 		{
 			for(int i = 0; i < trucks.getNrOfTrucks(); i++)
 			{
-				cout << "Truck: " << i << endl;
-				trucks.getTruckAt(i).toString();
+				cout << "Truck: " << i +1 << endl;
+				cout << trucks.getTruckAt(i).toString();
 			}
 		}
 		else if (choice == 5) 
@@ -95,14 +94,14 @@ void Warehouse::update(bool admin)
 			cout << "Which shelf" << endl;
 			for(int i = 0; i < nrOfShelfs; i++)
 			{
-				cout << i+1 << ": Shelf " << i + 1;
+				cout << i + 1 << ": Shelf " << i + 1 << endl;
 			}
 			cout << "0: Exit" << endl;
 			cin >> choice;
 			cin.ignore();
 			if(choice != 0 && choice <= nrOfShelfs)
 			{
-				shelfs[choice].update(admin, 2);
+				shelfs[choice-1].update(admin, 2);
 			}
 		}
 		else if (choice == 7) 

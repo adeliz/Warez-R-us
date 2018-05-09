@@ -8,6 +8,7 @@ int main()
 
 	int choice = -1;
 
+	cout << "Username: Master  Password: 12345" << endl;
 	while(choice != 0)
 	{
 		cout << "What do you want to do?" << endl;

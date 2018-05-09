@@ -289,6 +289,7 @@ void Shelf::update(bool admin, int action)
 					cin >> weight;
 					cout << "Price?" << endl;
 					cin >> price;
+					cin.ignore();
 					cout << "Type?" << endl;
 					getline(cin, type);
 					cout << "Material?" << endl;
@@ -333,6 +334,7 @@ void Shelf::update(bool admin, int action)
 					cin >> weight;
 					cout << "Price?" << endl;
 					cin >> price;
+					cin.ignore();
 					cout << "Type?" << endl;
 					getline(cin, type);
 					this->addMisc(name, description, brand, weight, price, type);
@@ -350,6 +352,7 @@ void Shelf::update(bool admin, int action)
 					cin >> weight;
 					cout << "Price?" << endl;
 					cin >> price;
+					cin.ignore();
 					cout << "Type?" << endl;
 					getline(cin, type);
 					this->addMisc(name, description, brand, weight, price, type);
