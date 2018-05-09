@@ -17,7 +17,7 @@ private:
 	Item* *storage;
 	string shelfId;
 public:
-	Shelf(int cap = 0, string shelfId = "");
+	Shelf(int cap = 10, string shelfId = "");
 	virtual ~Shelf();
 
 	int getNrOf();

@@ -120,6 +120,7 @@ void TruckManager::update(bool admin, int action)
 		{
 			cout << "Enter the trucks information" << endl;
 			cout << "Id? " << endl;
+			cin.ignore();
 			getline(cin, id);
 			cout << "Destination? " << endl;
 			getline(cin, id);
